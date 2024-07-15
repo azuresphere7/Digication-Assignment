@@ -3,7 +3,9 @@ import { Service } from 'typedi';
 import { getRepository } from 'typeorm';
 
 import PortfolioEntity from '../entities/PortfolioEntity';
+import PortfolioVersionEntity from '../entities/PortfolioVersionEntity';
 import PageEntity from '../entities/PageEntity';
+import { VERSION_TYPE } from '../types/versions';
 
 @Resolver()
 @Service()
@@ -35,9 +37,16 @@ export default class PageResolver {
     });
     if (!portfolio) throw new Error('Portfolio not found');
 
+    // Check if the portfolio has a draft version
+    const draftVersion: PortfolioVersionEntity | undefined = portfolio.versions.find(
+      (version) => version.type === VERSION_TYPE.DRAFT
+    );
+    if (!draftVersion) throw new Error('Draft version not found');
+
     const page: PageEntity = pageRepository.create({
       name,
-      url
+      url,
+      version: draftVersion,
     });
 
     await pageRepository.save(page);

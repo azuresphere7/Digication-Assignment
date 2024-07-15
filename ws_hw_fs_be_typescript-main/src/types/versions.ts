@@ -1,0 +1,5 @@
+export enum VERSION_TYPE {
+  DRAFT = 'DRAFT',
+  PUBLISHED = 'PUBLISHED',
+  SNAPSHOT = 'SNAPSHOT',
+}

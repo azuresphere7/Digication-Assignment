@@ -1,7 +1,7 @@
 import { Field, ObjectType } from 'type-graphql';
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
-import PageEntity from './PageEntity';
+import PortfolioVersionEntity from './PortfolioVersionEntity';
 
 @ObjectType('Portfolio')
 @Entity()
@@ -18,6 +18,7 @@ export default class PortfolioEntity {
   @Column('varchar', { nullable: false, unique: true })
   url: string;
 
-  @OneToMany(() => PageEntity, (page) => page.portfolio)
-  pages: PageEntity[];
+  @Field(() => [PortfolioVersionEntity])
+  @OneToMany(() => PortfolioVersionEntity, (version) => version.portfolio, { cascade: true, onDelete: 'CASCADE' })
+  versions: PortfolioVersionEntity[];
 }

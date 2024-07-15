@@ -1,10 +1,12 @@
 import Koa from 'koa';
+import dotenv from 'dotenv';
 import 'reflect-metadata';
 
 import config from './config';
 import createApolloServer from './helpers/createApolloServer';
 import { getConnection } from './helpers/database';
 
+dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = new Koa();
 
