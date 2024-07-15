@@ -1,17 +1,18 @@
-import React from 'react';
-import { Box } from '@mui/material';
+import React, { useEffect } from 'react';
 import { useDrag, useDragDropManager } from 'react-dnd';
 import { useRafLoop } from 'react-use';
+import { Box } from '@mui/material';
 
-import ModuleInterface from '../types/ModuleInterface';
 import { moduleW2LocalWidth, moduleX2LocalX, moduleY2LocalY } from '../helpers';
+import ModuleInterface from '../types/ModuleInterface';
 
 type ModuleProps = {
   data: ModuleInterface;
+  manageModules: (activeModule: ModuleInterface) => void;
 };
 
 const Module = (props: ModuleProps) => {
-  const { data: { id, coord: { x, y, w, h } } } = props;
+  const { data: { id, coord: { x, y, w, h } }, manageModules } = props;
 
   // Transform x, y to left, top
   const [{ top, left }, setPosition] = React.useState(() => ({
@@ -30,11 +31,10 @@ const Module = (props: ModuleProps) => {
       return;
     }
 
-    // Update new position of the module
-    setPosition({
-      top: initialPosition.current.top + movement.y,
-      left: initialPosition.current.left + movement.x,
-    });
+    // Calculate and update the new position during drag
+    const updatedX = initialPosition.current.left + movement.x;
+    const updatedY = initialPosition.current.top + movement.y;
+    manageModules({ id, coord: { x: updatedX, y: updatedY, w: moduleW2LocalWidth(w), h } });
   }, false);
 
   // Wire the module to DnD drag system
@@ -50,6 +50,14 @@ const Module = (props: ModuleProps) => {
     },
     end: stop,
   }), [top, left]);
+
+  // Update position on coordionates change
+  useEffect(() => {
+    setPosition({
+      top: moduleY2LocalY(y),
+      left: moduleX2LocalX(x),
+    });
+  }, [x, y]);
 
   return (
     <Box

@@ -9,10 +9,11 @@ type GridProps = {
 const Grid = (props: GridProps) => {
   const { height } = props;
   const numRows = Math.round(height / 2 / GUTTER_SIZE) + 10;
+
   return (
     <Box position="absolute" width="100%" height="100%" sx={{ pointerEvents: 'none' }}>
       {/* Columns */}
-      {[...Array(NUM_COLUMNS)].map((v, index) => (
+      {[...Array(NUM_COLUMNS)].map((_, index) => (
         <Box
           key={index}
           position="absolute"
@@ -29,7 +30,7 @@ const Grid = (props: GridProps) => {
       ))}
 
       {/* Rows */}
-      {[...Array(numRows)].map((v, index) => (
+      {[...Array(numRows)].map((_, index) => (
         <Box
           key={index}
           height={GUTTER_SIZE}
