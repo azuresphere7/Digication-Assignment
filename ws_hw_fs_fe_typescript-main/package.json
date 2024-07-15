@@ -1,12 +1,12 @@
 {
   "name": "@digication/ws_hw_fs_fe_typescript",
   "version": "1.0.0",
-  "description": "Frontend homework task for Full-Stack developers",
+  "description": "Frontend homework task solution completed by Dustin Lee",
   "main": "index.js",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development webpack serve",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=development webpack serve",
     "lint": "eslint --ext .ts,.tsx src tests",
     "tsc": "tsc",
     "test": "NODE_ENV=test jest --config ./jest.config.js --verbose"
