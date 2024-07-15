@@ -1,6 +1,6 @@
 {
   "name": "@digication/ws_hw_fs_be_typescript",
-  "description": "Backend homework task for Full-Stack developers",
+  "description": "Backend homework task solution completed by Dustin Lee",
   "version": "1.0.0",
   "license": "UNLICENSED",
   "private": true,
@@ -23,6 +23,7 @@
     "class-transformer-validator": "^0.9.1",
     "class-validator": "0.13.1",
     "dataloader": "^2.0.0",
+    "dotenv": "^16.4.5",
     "graphql": "^15.6.1",
     "graphql-relay": "^0.9.0",
     "graphql-type-json": "^0.3.2",
