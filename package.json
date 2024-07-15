@@ -1,0 +1,18 @@
+{
+  "name": "@digication/assessment-solution",
+  "version": "1.0.0",
+  "description": "Full Stack homework task solution completed by Dustin Lee",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "backend:build": "cd ws_hw_fs_be_typescript-main && yarn build",
+    "backend:db:migrate": "cd ws_hw_fs_be_typescript-main && yarn db migration:run",
+    "backend:dev": "cd ws_hw_fs_be_typescript-main && yarn dev",
+    "backend:lint": "cd ws_hw_fs_be_typescript-main && yarn lint",
+    "backend:test": "cd ws_hw_fs_be_typescript-main && yarn test",
+    "frontend:start": "cd ws_hw_fs_fe_typescript-main && yarn start",
+    "frontend:lint": "cd ws_hw_fs_fe_typescript-main && yarn lint",
+    "frontend:test": "cd ws_hw_fs_fe_typescript-main && yarn test"
+  }
+}
