@@ -1,18 +1,18 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Field, ObjectType } from 'type-graphql';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-import PortfolioEntity from './PortfolioEntity';
-
+@ObjectType('Page')
 @Entity()
 export default class PageEntity {
+  @Field()
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Field()
   @Column('varchar', { nullable: false })
   name: string;
 
-  @Column('varchar', { nullable: false, unique: true })
+  @Field()
+  @Column('varchar', { nullable: false })
   url: string;
-
-  @ManyToOne(() => PortfolioEntity, { nullable: false })
-  portfolio: PortfolioEntity;
 }
