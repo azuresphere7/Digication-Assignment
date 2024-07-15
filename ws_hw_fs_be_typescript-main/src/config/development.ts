@@ -5,14 +5,14 @@ const config: ConfigInterface = {
   database: {
     type: 'sqlite' as const,
     cache: false,
-    database: ':memory:',
-    dropSchema: true,
+    database: `${__dirname}/../database.sqlite`,
+    dropSchema: false,
     entities: ['src/entities/*.ts'],
     logger: 'advanced-console' as const,
     synchronize: true,
   },
   graphQLPath: '/graphql',
-  resolvers: [`${__dirname}/../resolvers/**/*Resolver.ts`],
+  resolvers: [`${__dirname}/../resolvers/**/*.ts`],
 };
 
 export default config;
