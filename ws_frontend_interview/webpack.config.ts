@@ -1,7 +1,6 @@
-import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const config: webpack.Configuration = {
+export default {
   entry: [
     './src/index.tsx',
   ],
@@ -20,6 +19,8 @@ const config: webpack.Configuration = {
     ],
   },
   plugins: [new HtmlWebpackPlugin()],
-};
+  devServer: {
+    historyApiFallback: true,
+  },
 
-export default config;
+};
