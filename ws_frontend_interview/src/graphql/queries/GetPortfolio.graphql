@@ -1,0 +1,8 @@
+query GetPortfolio($id: Float!) {
+  getPortfolio(id: $id) {
+    id
+    name
+    url
+    createdAt
+  }
+}

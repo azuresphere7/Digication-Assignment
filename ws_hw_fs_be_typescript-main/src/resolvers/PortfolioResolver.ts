@@ -27,6 +27,11 @@ export default class PortfolioResolver {
     const portfolioRepository = getRepository(PortfolioEntity);
     const versionRepository = getRepository(PortfolioVersionEntity);
 
+    const existPortfolio = await portfolioRepository.findOne({ where: { url } });
+    if (existPortfolio) {
+      throw new Error('Portfolio already exists');
+    }
+
     const portfolio: PortfolioEntity = portfolioRepository.create({ name, url });
     await portfolioRepository.save(portfolio);
 

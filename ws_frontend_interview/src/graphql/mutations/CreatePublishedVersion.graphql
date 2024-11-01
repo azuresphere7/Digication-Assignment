@@ -1,0 +1,6 @@
+mutation CreatePublishedVersion($portfolioId: Float!) {
+  createPublishedVersion(portfolioId: $portfolioId) {
+    id
+    type
+  }
+}
