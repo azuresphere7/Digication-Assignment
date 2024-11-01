@@ -22,5 +22,9 @@ export default {
   devServer: {
     historyApiFallback: true,
   },
-
+  output: {
+    path: `${__dirname}/dist`,
+    filename: 'bundle.js',
+    publicPath: '/',
+  },
 };
