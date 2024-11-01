@@ -1,0 +1,7 @@
+mutation UpdatePortfolio($id: Float!, $url: String!, $name: String!) {
+  updatePortfolio(id: $id, url: $url, name: $name) {
+    id
+    name
+    url
+  }
+}

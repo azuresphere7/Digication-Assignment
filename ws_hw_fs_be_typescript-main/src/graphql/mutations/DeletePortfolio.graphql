@@ -1,0 +1,3 @@
+mutation DeletePortfolio($id: Float!) {
+  deletePortfolio(id: $id)
+}

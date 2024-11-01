@@ -1,0 +1,6 @@
+query ListPortfolioVersions($portfolioId: Float!) {
+  listPortfolioVersions(portfolioId: $portfolioId) {
+    id
+    type
+  }
+}
