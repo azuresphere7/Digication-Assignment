@@ -8,7 +8,8 @@
   "scripts": {
     "start": "NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=development webpack serve",
     "lint": "eslint --ext .ts,.tsx src",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.11.8",

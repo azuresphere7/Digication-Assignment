@@ -1,0 +1,7 @@
+mutation UpdatePage($id: Float!, $url: String!, $name: String!) {
+  updatePage(id: $id, url: $url, name: $name) {
+    id
+    name
+    url
+  }
+}

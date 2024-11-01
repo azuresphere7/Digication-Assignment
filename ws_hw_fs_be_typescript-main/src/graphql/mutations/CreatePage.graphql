@@ -1,0 +1,7 @@
+mutation CreatePage($portfolioId: Float!, $url: String!, $name: String!) {
+  createPage(portfolioId: $portfolioId, url: $url, name: $name) {
+    id
+    name
+    url
+  }
+}

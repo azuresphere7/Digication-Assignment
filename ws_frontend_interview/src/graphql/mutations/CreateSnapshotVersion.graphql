@@ -1,0 +1,6 @@
+mutation CreateSnapshotVersion($portfolioId: Float!) {
+  createSnapshotVersion(portfolioId: $portfolioId) {
+    id
+    type
+  }
+}

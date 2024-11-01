@@ -1,0 +1,7 @@
+query ListPages {
+  listPages {
+    id
+    name
+    url
+  }
+}

@@ -1,0 +1,7 @@
+query ListPagesByVersion($versionId: Float!) {
+  listPagesByVersion(versionId: $versionId) {
+    id
+    name
+    url
+  }
+}

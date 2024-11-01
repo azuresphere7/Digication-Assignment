@@ -1,0 +1,8 @@
+query ListPortfolios {
+  listPortfolios {
+    id
+    name
+    url
+    createdAt
+  }
+}

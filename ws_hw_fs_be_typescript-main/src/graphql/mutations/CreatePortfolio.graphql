@@ -1,0 +1,7 @@
+mutation CreatePortfolio($url: String!, $name: String!) {
+  createPortfolio(url: $url, name: $name) {
+    id
+    name
+    url
+  }
+}

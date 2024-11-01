@@ -1,5 +1,5 @@
 import { Field, ObjectType } from 'type-graphql';
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, CreateDateColumn } from 'typeorm';
 
 import PortfolioVersionEntity from './PortfolioVersionEntity';
 
@@ -17,6 +17,10 @@ export default class PortfolioEntity {
   @Field()
   @Column('varchar', { nullable: false, unique: true })
   url: string;
+
+  @Field()
+  @CreateDateColumn({ default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
 
   @Field(() => [PortfolioVersionEntity])
   @OneToMany(() => PortfolioVersionEntity, (version) => version.portfolio, { cascade: true, onDelete: 'CASCADE' })

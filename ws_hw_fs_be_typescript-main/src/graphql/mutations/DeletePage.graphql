@@ -1,0 +1,3 @@
+mutation DeletePage($id: Float!) {
+  deletePage(id: $id)
+}
